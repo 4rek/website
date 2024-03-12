@@ -10,6 +10,7 @@
     "format": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@vercel/analytics": "^1.2.2",
     "accept-language": "^3.0.18",
     "i18next": "^23.10.1",
     "i18next-resources-to-backend": "^1.2.0",

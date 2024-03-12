@@ -6,8 +6,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const GithubLink = () => {
-  const { theme } = useTheme();
-  const ghIcon = theme === 'dark' ? ghIconLight : ghIconDark;
+  const { theme, systemTheme } = useTheme();
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+
+  const ghIcon = currentTheme === 'dark' ? ghIconLight : ghIconDark;
 
   return (
     <Link href='https://github.com/4rek' passHref target='_blank'>

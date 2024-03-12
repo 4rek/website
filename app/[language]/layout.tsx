@@ -1,6 +1,8 @@
 import { languages } from '@/i18n/settings';
 import { dir } from 'i18next';
 
+import { Analytics } from '@vercel/analytics/react';
+
 import '@/globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
@@ -35,6 +37,7 @@ export default function RootLayout({
           <Header language={language} />
           <main>{children}</main>
         </Providers>
+        <Analytics />
       </body>
     </html>
   );

@@ -10,14 +10,16 @@ import homeIconDark from '@/public/home-dark.svg';
 import homeIconLight from '@/public/home-light.svg';
 
 export default function Header({ language }: { language: string }) {
-  const { theme } = useTheme();
+  const { theme, systemTheme } = useTheme();
 
-  const bgColor = theme === 'dark' ? 'bg-gray-800' : 'bg-white';
-  const homeIcon = theme === 'dark' ? homeIconLight : homeIconDark;
+  const currentTheme = theme === 'system' ? systemTheme : theme;
+
+  const bgColor = currentTheme === 'dark' ? 'bg-gray-800' : 'bg-white';
+  const homeIcon = currentTheme === 'dark' ? homeIconLight : homeIconDark;
 
   return (
     <header
-      className={`flex border-2  items-center align-center justify-between my-8 rounded-3xl p-4 sticky top-5 shadow-2xl ${bgColor}`}
+      className={`flex border-2 items-center align-center justify-between my-8 rounded-3xl p-4 sticky top-5 shadow-2xl ${bgColor}`}
     >
       <nav>
         <ul className='ml-auto flex items-center'>
