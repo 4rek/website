@@ -3,11 +3,19 @@ import lightModeIcon from '@/public/theme-light.svg';
 import darkModeIcon from '@/public/theme.svg';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 const ThemeSwitcher = () => {
-  const { systemTheme, theme, setTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
   const currentTheme = theme === 'system' ? systemTheme : theme;
-  const icon = currentTheme === 'dark' ? lightModeIcon : darkModeIcon;
+  const [icon, setIcon] = useState('');
+
+  useEffect(() => {
+    const currentTheme = theme === 'system' ? systemTheme : theme;
+    const currentIcon = currentTheme === 'dark' ? lightModeIcon : darkModeIcon;
+    setIcon(currentIcon);
+  }, [theme, systemTheme]);
+
   return (
     <Image
       src={icon}
